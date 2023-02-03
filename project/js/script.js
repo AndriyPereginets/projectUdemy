@@ -14,13 +14,37 @@
 
 'use strict';
 
+const listMovies = document.querySelector('.promo__interactive-list');
+const reklama = document.querySelectorAll('.promo__adv img');
+const genre = document.querySelector('.promo__genre');
+const bg = document.querySelector('.promo__bg');
+
+reklama.forEach(item => {
+    item.remove();
+});
+
+genre.textContent = 'Драма';
+bg.style.backgroundImage = 'url("img/bg.jpg")';
+
+
 const movieDB = {
     movies: [
         "Логан",
-        "Лига справедливости",
+        "Лига плюща",
         "Ла-ла лэнд",
         "Одержимость",
         "Скотт Пилигрим против..."
     ]
 };
 
+listMovies.innerHTML = "";
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+    listMovies.innerHTML += `
+    <li class="promo__interactive-item">${i+1} ${film}
+         <div class="delete"></div>
+    </li>
+    `.toLowerCase();
+});
