@@ -5,12 +5,12 @@ const btn = document.querySelector('button'),
 let i = 0;
 const deletElements = (e) => {
     console.log(e.target);
-    i++;
+   /*  i++;
     if (i === 3) {
         btn.removeEventListener('click', deletElements);    
-    }
+    } */
 };
-btn.addEventListener('click', deletElements);
+/* btn.addEventListener('click', deletElements); */
 /* btn.addEventListener('click', (e) => {
     e.target.remove();
     /* console.log(e.target); */
