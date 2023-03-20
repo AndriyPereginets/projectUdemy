@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     /// timer
-    const dedline = '2023-03-03';
+    const dedline = '2023-06-03';
 
     function getTimeRemaining (endTime) {
         const t = Date.parse(endTime) - Date.parse(new Date()),
@@ -210,6 +210,50 @@ window.addEventListener('DOMContentLoaded', () => {
             12,
             '.menu .container'
         ).render();
+
+        /// Forms
+        const forms = document.querySelectorAll('form');
+        const massage = {
+            loading: 'Завантаження',
+            success: 'Дякую, незабаром з вами зконтактують',
+            failure: 'Упс, щось не так'
+        };
+
+        forms.forEach(item => {
+            postData(item);
+        });
+
+        function postData(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const statusMassage = document.createElement('div');
+                statusMassage.classList.add('status');
+                statusMassage.textContent = massage.loading;
+                form.append(statusMassage);
+                
+                
+                const formData = new FormData(form);
+
+                fetch('serever.php', {
+                    method: "POST",
+                    headers: {'Content-type': 'multipart/form-data'},
+                    body: formData
+                })
+                .then(data => data.text)
+                .then(data => {
+                    console.log(data);
+                    statusMassage.remove();
+                })
+                .catch(() => {
+                    statusMassage.textContent = massage.failure;
+                })
+                .finally(() => {
+                    form.reset();
+                });                              
+            });
+        }
+       
 }); 
 
 
