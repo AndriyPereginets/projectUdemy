@@ -1,0 +1,22 @@
+{
+  "name": "project_mdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriyPereginets/projectUdemy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriyPereginets/projectUdemy/issues"
+  },
+  "homepage": "https://github.com/AndriyPereginets/projectUdemy#readme",
+  "devDependencies": {
+    "json-server": "^0.17.3"
+  }
+}
