@@ -61,7 +61,7 @@ function slider() {
            }
 
            next.addEventListener('click', () => {
-               if (offset == rep(width) * (slides.length -1)) {
+               if (offset == rep(width) * (slider.length -1)) {
                    offset = 0;
                } else {
                    offset += rep(width);
@@ -95,7 +95,7 @@ function slider() {
 
            prev.addEventListener('click', () => {
                if (offset == 0) {
-                   offset = rep(width)  * (slides.length -1);
+                   offset = rep(width)  * (slider.length -1);
                } else {
                    offset -= rep(width) ;
                }
